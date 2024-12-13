@@ -1,11 +1,27 @@
-### Universal MAC Address Changer Script
-
-# This script detects the operating system and executes the appropriate logic to change the MAC address.
-
 import os
 import platform
 import subprocess
 import random
+
+# Function to clear the terminal/command prompt screen
+def clear_screen():
+    if os.name == "nt":  # For Windows
+        os.system("cls")
+    else:  # For Linux and macOS
+        os.system("clear")
+
+# Function to display the logo/banner
+def display_logo():
+    logo = """
+  __  __    _    ____   ____ _                              
+ |  \/  |  / \  |  _ \ / ___| |__   __ _ _ __ ___   ___ ___ 
+ | |\/| | / _ \ | | | | |   | '_ \ / _` | '_ ` _ \ / _ / __|
+ | |  | |/ ___ \| |_| | |___| | | | (_| | | | | | |  __\__ \\
+ |_|  |_/_/   \_\____/ \____|_| |_|\__,_|_| |_| |_|\___|___/
+
+                Universal MAC Address Changer
+    """
+    print(logo)
 
 # Function to generate a valid MAC address
 def generate_mac():
@@ -77,6 +93,8 @@ def change_mac_mac():
 
 # Detect the operating system and call the appropriate function
 def main():
+    clear_screen()  # Clear the screen before starting
+    display_logo()  # Display the logo/banner
     os_type = platform.system()
 
     if os_type == "Windows":
@@ -90,3 +108,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+ss
